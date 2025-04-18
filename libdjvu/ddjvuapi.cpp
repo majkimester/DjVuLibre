@@ -325,6 +325,20 @@ xhead(ddjvu_message_tag_t tag,
   return any;
 }
 
+// ----------------------------------------
+// Alloc
+
+void* 
+ddjvu_alloc(size_t size) 
+{
+    return malloc(size);
+}
+
+void 
+ddjvu_free(void* ptr) 
+{
+    free(ptr);
+}
 
 // ----------------------------------------
 // Version

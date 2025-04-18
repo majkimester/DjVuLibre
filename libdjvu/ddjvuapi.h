@@ -111,6 +111,9 @@ extern "C" {
 
    Version   Change
    -----------------------------
+     24A   Added (non official):
+              ddjvu_alloc()
+              ddjvu_free()
      24    Added:
               miniexp_lstring()
               miniexp_to_lstr()
@@ -184,7 +187,21 @@ typedef struct ddjvu_rectmapper_s ddjvu_rectmapper_t;
      <"doc/djvu3changes.txt"> and <"doc/djvu3spec.djvu">.
 */
 
-  
+/* To keep memory management safe export allocation and
+   free memory functions to ensure that library consumers
+   release memory allocated by us with very same functions.
+*/
+
+
+
+/* ddjvu_get_version_string() ---
+Returns a string that described the underlying code. */
+
+DDJVUAPI void*
+ddjvu_alloc(size_t size);
+
+DDJVUAPI void
+ddjvu_free(void*);
 
 /* -------------------------------------------------- */
 /* DDJVU_CONTEXT_T                                    */
